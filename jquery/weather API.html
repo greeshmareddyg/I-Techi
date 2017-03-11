@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>Greeshma Weather Map </title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<style type="text/css">
+			.col-xs-2{border:1px solid;}
+			.special { background-color: #000066;}
+				
+			.jumbotron{          
+				height: 300px;
+				text-align: center; }  
+
+			#main { height:900px;}
+			#hourlyDiv {height:900px;}
+			#dailyDiv {height:900px;}
+
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse special">
+		  <div class="container">
+			
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">Greeshma Weather Map</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				<li class="active"><a href="#mainDiv">Main</a></li>
+				<li><a href="#hourlyDiv">Hourly</a></li>
+				<li><a href="#dailyDiv">Daily</a></li>
+			  </ul>
+			  <form class="navbar-form navbar-right">
+				<div class="form-group">
+				  <input type="text" class="form-control" placeholder="search" id="cityName">
+				</div>
+				<button type="button" class="btn btn-default" onclick="getWeather($('#cityName').val())">Get Weather</button>
+			  </form>
+			</div>
+		  </div>
+		</nav>
+
+		<div id="mainDiv">
+		<div class="container">
+		  <div class="jumbotron">
+			 <p class="text-center">Weather in the city of <span id="city"></span></p><br/>
+			 <p id="todaytemp" class="text-center"></p>
+		  </div>			  
+		</div>
+		</div>
+
+		<div id="hourlyDiv">
+			<div class="container">
+				<div class="panel panel-default"  id="hourlyDiv">
+					<div class="panel-heading">
+						<h3 class="panel-title">Hourly ForeCast For <span id='todayDetCity'></span></h3>
+					</div>
+					<div class="panel-body">
+						<div class="row" id="hourlyWeatherForecast">								
+						</div>
+					</div>
+				</div>
+			</div>      
+		</div>
+		</div>
+
+		<div id="DailyDiv">
+			<div class="container">
+				<div class="panel panel-default"   id="dailyDiv">
+					<div class="panel-heading">
+						<h3 class="panel-title">Daily Weather for <span id='dailyDetCity'></span></h3>
+					</div>
+					<div class="panel-body">
+						<div class="row" id="dailyWeatherForecast">
+								
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" >
+
+			$(document).ready(function () {
+				getWeather(city);
+			});
+			var x = document.getElementById("loc");
+			
+
+			function getWeather(city) {
+				if(city==""){alert("Please enter the city");return}
+				
+				var url = 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&APPID=6fa0190d41a18306f165347db799b4d0';
+				$("#dayDiv,#hourlyDiv,#dailyDiv").show()  
+				$.getJSON(url,function(json){
+					$("#city,#todayDetCity,#dailyDetCity").text(json.name+','+json.sys.country);
+					$('#todaytemp').html("<img src='http://openweathermap.org/img/w/"+json.weather[0].icon+".png'/>&nbsp;"+json.main.temp)
+				});
+				loadHourlyForeCast(city);
+				loadDailyForeCast(city);			   
+			}
+
+			function loadHourlyForeCast(city){
+				var url = 'http://api.openweathermap.org/data/2.5/forecast?q='+city+'&APPID=6fa0190d41a18306f165347db799b4d0';
+				var div="";
+				$.getJSON(url,function(json){
+					$.each(json.list, function( index, value ) {
+						div+="<div class='col-xs-2 text-center'>"+value.dt_txt+"<br/><img src='http://openweathermap.org/img/w/"+value.weather[0].icon+".png'/>&nbsp;"+value.main.temp+"</div>";	
+					});
+				$("#hourlyWeatherForecast").html(div);
+			  });
+			}
+
+			function loadDailyForeCast(city){
+				var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+city+'&APPID=6fa0190d41a18306f165347db799b4d0';
+				var div="";var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+				var tr="<table class='table table-bordered'>";
+				 $.getJSON(url,function(json){
+					var div="",i=0;
+					$.each(json.list, function( index, value ) {
+					if(index%3==0){tr+='<tr>';}
+					var a=new Date(value.dt*1000);
+						tr+="<td>"+months[a.getMonth()]+" "+a.getDate()+"</td>";
+						tr+="<td><img src='http://openweathermap.org/img/w/"+value.weather[0].icon+".png'/>&nbsp;"+value.temp.day+"</td>";
+						if(index%3==2){tr+='</tr>';}	
+					});
+					tr+='</table>';
+					$("#dailyWeatherForecast").html(tr);
+			  });
+			}
+		</script>
+	</body>
+</html>
