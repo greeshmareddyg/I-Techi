@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <title>Greeshma's Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  </head>
+  
+  <body>
+	
+		<div>
+			<!-- Expression.(binding expression)
+				AngularJS binds data to HTML using Expressions.-->
+			
+			10 + 20 = {{10 + 20}}
+		</div>
+		<div>
+			{{1==2}}
+		</div>
+		<!--  ng-init: evaluates an expression in the current scope. -->
+		<div ng-init="quantity=1;cost=5">
+
+			<p>Total in dollar: {{ quantity * cost }}</p>
+
+		</div>
+		<div>
+			{{ { name: 'Greeshma', age : '25' }.name }}
+		</div>
+		<div>
+			{{ ['Greeshma', 'reddy', 'ggr'][2] }} 
+		</div>
+		<!-- Two way data binding:  synchronization between the model and the view.
+			When data in the model changes, the view reflects the change, and when data in the view changes, the model is updated as well.-->
+		
+		
+		
+  </body>
+</html>

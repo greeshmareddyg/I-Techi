@@ -1,0 +1,1 @@
+eclipse tool-->code pull-->project structure-->right click-->team-->synchro-->changed files-->commit and push

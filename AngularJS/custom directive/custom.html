@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="custom.js"></script>
+    <!-- <link href="Styles.css" rel="stylesheet" /> -->
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myController">
+		<div ng-repeat="movie in movies">
+			<my-movie title="{{movie}}">
+				Movie Title :  
+			</my-movie>
+		</div>
+	</div>
+</body>
+<!--  http://www.3pillarglobal.com/insights/angularjs-understanding-custom-directive  -->
+</html>
