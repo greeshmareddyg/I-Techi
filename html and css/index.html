@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>My Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<h1> UI Samples </h1>
+		<div id="box"> CSS code practice</div>
+		<div id="para1"> <p> Style using ID selector </p> </div>
+		<div class="para2"><p>Style for Class selector</p></div>
+		<div> 	
+			<!-- A pseudo-class is used to define a special state of an element.-->
+			<a href="http://www.google.com">Google Psuedo class</a>
+		</div>	
+		
+		<div style="height:100%">
+			<img src="image.jpg" width="50" height="50">
+            <p> Example for Z-index</p>
+			<!--The z-index property specifies the stack order of an element.
+            An element with greater stack order is always in front of an element with a lower stack order. -->
+		</div>
+		<div>
+			<p>css display type </p>
+			<ol>
+				<li><a href="#">page1</a></li>
+				<li><a href="#">page2</a></li>
+				<li><a href="#">page3</a></li>				
+			</ol>
+			<p id="hidden"> diplay hidden </p>
+		</div>
+		<div>
+			<table>
+				<tr>
+					<p>css sprites </p>			
+					<ul id="navlist">
+						<li id="prev"><a href="#"></a></li>
+						<li id="home"><a href="#"></a></li>				
+						<li id="next"><a href="#"></a></li>
+					</ul>
+				</tr>
+				<tr>
+					<p> hello</p>
+				</tr>
+			<table>
+		</div>
+		
+		<div>
+			<h1>hello </h1>
+		</div>
+		<div id="offset">This div has an outline border 15px outside the border edge.</div>
+		<div id="boxmodel"> 
+			<h2> BOX MODEL </h2>
+			This text is the box model
+		</div>
+		<div class="scroll">
+			You can use the overflow property when you want to have better control of the layout. The default value is visible.
+		</div>
+		</br>
+		
+		<button id="myBtn">Try it</button>	</br>			
+				
+		<button type="button" onclick="myFunction()">Click Me!</button> </br>
+		<p id="demo"></p> </br>
+				
+		<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="smiley.png" alt="Smiley" width="32" height="32">
+		
+		<div>
+			<p>Click the button to list all the items in the array.</p>
+			<button onclick="numbers.forEach(myFunction)">Try it</button>
+			<p id="foreach"></p>
+		</div>
+		
+		<script>
+			// add eventlistener 
+			document.getElementById("myBtn").addEventListener("click", myFunction);
+
+			function myFunction() {
+				alert ("Hello World!");
+			}
+		</script>
+		<script>
+			// mouse events mouse over, mouse out
+			function bigImg(x) {
+				x.style.height = "64px";
+				x.style.width = "64px";
+			}
+
+			function normalImg(x) {
+				x.style.height = "32px";
+				x.style.width = "32px";
+			}
+		</script>
+		
+		<script>
+			var a = 4;
+			function myFunction() {
+            document.getElementById("demo").innerHTML = a * a;
+			}
+		</script>
+		<script>
+			demoP = document.getElementById("demo");
+			var numbers = [4, 9, 16, 25];
+
+			function myFunction(item, index) {
+				demoP.innerHTML = demoP.innerHTML + "index[" + index + "]: " + item + "<br />";
+				}
+		</script>
+		
+		<!--Input types text box, radio button,check box, dropdown, list --> 
+			
+		<form action="">
+			  First name:<br>
+			  <input type="text" name="firstname" value="greeshma">
+			  <br>
+			  Last name:<br>
+			  <input type="text" name="lastname" value="reddy">
+			  <input type="submit" value="Submit">
+			  <br><br>
+			</form> 
+			
+			<form action="">
+			  <input type="radio" name="course" value="HTML"> HTML<br>
+			  <input type="radio" name="course" value="CSS"> CSS<br>
+			  <input type="radio" name="course" value="JS"> JS
+			</form>
+
+			
+			<form action="">
+			  <input type="checkbox" name="crs" value="HTML"> HTML<br>
+			  <input type="checkbox" name="crs" value="CSS" checked> CSS<br>
+			  <input type="checkbox" name="crs" value="JS" checked> JS<br>
+			  <input type="submit" value="Submit">
+			</form>
+		
+			<!-- nested list -->
+			<ul>
+			  <li>HTML </li>
+			  <li>CSS
+				<ul>
+				<li>SASS</li>
+				<li>LESS</li>
+				</ul>
+			  </li>
+			  <li>javascript</li>
+			</ul>
+			
+			
+			<!-- An inline element does not start on a new line and only takes up as much width as necessary.  like anchor and img tags-->
+			
+			<!-- SVG element  SVG stands for Scalable Vector Graphics, SVG is used to define graphics for the Web-->
+			
+			<svg width="100" height="100">
+			  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+			</svg>
+			
+			</br>
+			<p>gradient</p>
+			<div id="grad1"></div>
+			
+			</br>
+			 
+			<p>Transition</p>
+			<h3></h3>
+			
+			</br>
+			
+			Shadow
+			<p id="shadow"></p>
+			
+			</br>
+			
+			<!-- The canvas tag is only a container for graphics, you must use a script to actually draw the graphics.-->
+			<canvas id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+
+			<script>
+
+			var c = document.getElementById("myCanvas");
+			var ctx = c.getContext("2d");
+			ctx.fillStyle = "#FF0000";
+			ctx.fillRect(0, 0, 80, 100);
+
+			</script>
+
+			</br>
+
+			<video width="400" controls>
+			  <source src="video.mp4" type="video/mp4">			  
+			</video>
+			
+			<!-- semantic elements: <form>, <table>, and <article> - Clearly defines its content. -->
+			<!-- non-semantic elements: <div> and <span> - Tells nothing about its content. -->
+			
+			</br>
+				<iframe height="100px" width="100px" src="demo_iframe.htm" name="iframe_a"></iframe>
+
+				<p><a href="http://www.facebook.com" >W3Schools.com</a></p>
+
+				<p>When the target of a link matches the name of an iframe, the link will open in the iframe.</p>
+			
+			<!-- section and aricle tags -->
+			
+			<section>
+			  <h1>HTNL</h1>
+			  <p>HTML stands for Hyper Text Markup Language </br>
+				HTML describes the structure of Web pages using markup </br>
+				HTML elements are the building blocks of HTML pages </br>
+				HTML elements are represented by tags </br>
+				HTML tags label pieces of content such as "heading", "paragraph", "table", and so on </br>
+				Browsers do not display the HTML tags, but use them to render the content of the page</p>
+			</section>
+
+			<section>
+			  <h1>CSS</h1>
+			  <p>CSS stands for Cascading Style Sheets </br>
+				CSS describes how HTML elements are to be displayed on screen, paper, or in other media </br>
+				CSS saves a lot of work. It can control the layout of multiple web pages all at once </br>
+				External stylesheets are stored in CSS files</p>
+			</section>
+		
+			<article>
+			  
+			  <p>The article tag specifies independent, self-contained content.</p>
+			</article>
+			
+			<!--  -->
+			
+			<script>
+				function clickCounter() {
+					if(typeof(Storage) !== "undefined") {
+						if (localStorage.clickcount) {
+							localStorage.clickcount = Number(localStorage.clickcount)+1;
+						} else {
+							localStorage.clickcount = 1;
+						}
+						document.getElementById("local").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+					} else {
+						document.getElementById("local").innerHTML = "Sorry, your browser does not support web storage...";
+					}
+				}
+				</script>
+
+				<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+				<div id="local"></div>
+			
+			
+			<!-- session storage -->
+			
+			<script>
+			function clickCountersession() {
+				if (sessionStorage.clickcount) {
+					sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+				} else {
+					sessionStorage.clickcount = 1;
+				}
+				document.getElementById("storage").innerHTML = "You have clicked the button " +
+				sessionStorage.clickcount + " time(s) in this session.";
+			}
+			</script>
+			</head>
+			<body>
+			<p><button onclick="clickCountersession()" type="button">Click me!</button></p>
+			<div id="storage"></div>
+			
+			 
+						
+			<footer>
+			  <p>Created by: Greeshma Reddy</p>		  
+			</footer>
+
+	<body>
+</html>

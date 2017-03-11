@@ -1,0 +1,130 @@
+
+body {
+    background-color:#E8E8E8;
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+
+
+#para1 {color: blue;}
+
+.para2 { color: green;}
+
+a:link {  color: blue;}
+
+a:visited {color: purple;}
+
+a:hover {color: green;}
+
+a:active {color: black;}
+
+div > p{font-style: italic;}
+img {
+    position: absolute;
+    left: 0px;  
+    z-index: -1;
+}
+
+ol li {display: inline;}
+
+#hidden{display: none;}
+
+#navlist {
+    position: relative;
+}
+
+#navlist li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: 0;
+}
+
+#navlist li, #navlist a {
+    height: 50px;
+    display: block;
+}
+
+#home {
+    left: 0px;
+    width: 41px;
+    background: url('home.jpg') 0 0;
+}
+
+#prev {
+    left: 40px;
+    width: 55px;
+    background: url('prev.jpg') -49px 0;
+}
+
+#next {
+    left: 97px;
+    width: 51px;
+    background: url('next.jpg') -52px 0;
+}
+
+h1 {
+    text-shadow: 2px 2px red;
+}
+
+#box {
+    width: 100px;
+    height: 50px;
+    padding: 15px;
+    background-color: blue;
+    box-shadow: 10px 10px grey;
+}
+#offset {
+    margin: 20px;
+    width: 150px;
+    padding: 10px;
+    height: 70px;
+    border: 2px solid black;
+    outline: 2px solid red;
+    outline-offset: 15px;
+}
+ 
+#boxmodel {
+    background-color: lightgrey;
+    width: 300px;
+    border: 25px solid blue;
+    padding: 25px;
+    margin: 25px;
+}
+
+div.scroll {
+    background-color: #00FFFF;
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+}
+
+#grad1 {
+    height: 100px;
+    background: linear-gradient(red, yellow); /* Standard syntax (must be last) */
+}
+
+h3 {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s;
+}
+
+h3:hover {
+    width: 300px;
+}
+
+#shadow {
+    width: 300px;
+    height: 100px;
+    background-color: yellow;
+    box-shadow: 10px 10px 5px #888888;
+}
