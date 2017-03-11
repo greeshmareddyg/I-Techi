@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script src="js.js"></script>
+		<style>
+		</style>
+	</head>
+	<body>
+		
+		<p id="selfInvoke"></p>
+		<script>
+			//self-invoke function
+			(function () {
+				document.getElementById("selfInvoke").innerHTML = "Hi! This is My JavaScript Page";
+			})();
+		</script>
+		
+		<input type="text" id="reverseName">
+		<button onclick="myReverse()"> Name Reverse</button>
+		<p id="reverse"></p>
+		
+		<button onclick="myFunction('Greeshma','Reddy')">My Name</button>
+		<p id="parameters"></p>
+		
+		
+		
+		<button onclick="myName()">My Name using Object</button>
+		<p id="demo"></p>
+		
+		<button onclick="myMethod()">Change Name using Method</button>
+		<p id="method"></p>
+
+		<button onclick="myPrototype()">Add a property using prototype</button>
+		<p id="prototype"></p>
+		
+		<button onclick="setInt()"> Set Interval</button>
+		
+
+	</body>
+</html>
